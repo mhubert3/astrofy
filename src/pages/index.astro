@@ -12,52 +12,99 @@ const last_posts = posts.slice(0, 3);
 <BaseLayout sideBarActiveItemID="home">
   <div class="pb-12 mt-5">
     <div class="text-xl py-1">Hey there 👋</div>
-    <div class="text-5xl font-bold">I'm Manuel Ernesto</div>
-    <div class="text-3xl py-3 font-bold">Software Engineer and Entrepreneur</div>
-    <div class="py-2">
-      <text class="text-lg">
-        This is <b>Astrofy</b> a free and open-source template for your Personal Portfolio Website built with Astro and TailwindCSS.
-        Create in minutes a website with Blog, CV, Project Section, Store and RSS Feed. I hope you find
-        it useful!
-      </text>
-    </div>
-    <div class="mt-8">
-      <a class="btn" href="https://twitter.com/manuelernestog" target="_blank"> Let's connect!</a>
-      <a href="https://github.com/manuelernestog/astrofy" target="_blank" class="btn btn-outline ml-5">
-        Get This template
-      </a>
+    <div class="text-5xl font-bold">I'm Morgan Huberty</div>
+    <div class="text-3xl py-3 font-bold">Computer Engineering Student</div>
+    
+    <div class="py-6 space-y-4">
+      <p class="text-lg">
+        Welcome to my personal website and digital portfolio! I'm currently a junior year student at Johns Hopkins University studying Computer Engineering.
+      </p>
+
+      <div class="flex justify-start mb-4">
+        <a 
+          href="/June%20-%20Morgan%20Huberty%20Resume.pdf" 
+          download
+          class="inline-flex items-center px-6 py-3 text-lg font-bold bg-secondary text-primary-content rounded-lg hover:bg-primary-focus transition-colors duration-200 border-2 border-primary-content"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+          Download Resume
+        </a>
+      </div>
+
+      <div class="space-y-2">
+        <h3 class="text-xl font-semibold">Education 🎓</h3>
+        <p class="text-lg">
+          Johns Hopkins University
+        </p>
+      </div>
+
+      <div class="space-y-2">
+        <h3 class="text-xl font-semibold">Academic Focus 📚</h3>
+        <p class="text-lg">
+          My major-relevant interests include:
+        </p>
+        <ul class="list-disc list-inside ml-4 text-lg">
+          <li>Computer Architecture</li>
+          <li>Hardware Acceleration</li>
+          <li>Artificial Intelligence</li>
+          <li>Robotics</li>
+        </ul>
+      </div>
+
+      <div class="space-y-2">
+        <h3 class="text-xl font-semibold">Personal Interests 🧐 </h3>
+        <p class="text-lg">
+          Beyond my academic pursuits, I'm passionate about:
+        </p>
+        <ul class="list-disc list-inside ml-4 text-lg">
+          <li>Health & Wellness</li>
+          <li>History</li>
+          <li>Film</li>
+          <li>Philosophy</li>
+          <li>Automobiles</li>
+        </ul>
+      </div>
+
+      <p class="text-lg">
+        This website serves as both a portfolio and a space to explore my habits, interests, and self-development journey. Built with Astro and TailwindCSS, it's designed to be both functional and reflective of my personal style.
+      </p>
+
+      <p class="text-lg">
+        Thanks for stopping by! 🎉
+      </p>
     </div>
   </div>
 
   <div>
-    <div class="text-3xl w-full font-bold mb-2">My last projects {"</>"}</div>
+    <div class="text-3xl w-full font-bold mb-2">My recent projects {"</>"}</div>
   </div>
 
   <HorizontalCard
     title="Demo Project 1"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    img="/hardware.webp"
+    desc="Coming soon!"
     url="#"
     badge="NEW"
   />
   <div class="divider my-0"></div>
   <HorizontalCard
     title="Demo Project 2"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    img="/hardware.webp"
+    desc="Coming soon!"
     url="#"
   />
   <div class="divider my-0"></div>
   <HorizontalCard
     title="Demo Project 3"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    img="/software.webp"
+    desc="Coming soon!"
     url="#"
-    badge="FOSS"
   />
 
   <div>
-    <div class="text-3xl w-full font-bold mb-5 mt-10">Latest from blog</div>
+    <div class="text-3xl w-full font-bold mb-5 mt-10">Latest from blog 📝</div>
   </div>
 
   {
