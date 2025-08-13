@@ -7,4 +7,4 @@ badge: "NEW"
 tags: ["tokio"]
 ---
 
-Blog post coming soon. CHeck out my substack for more!
+Blog post coming soon. Check out my substack for more!

@@ -1,0 +1,89 @@
+---
+---
+
+<button
+  class="btn btn-ghost btn-sm normal-case theme-toggle"
+  aria-label="Toggle dark mode"
+  title="Toggle dark mode"
+  data-theme-toggle
+>
+  <span class="icon-sun" aria-hidden="true">☀️</span>
+  <span class="icon-moon" aria-hidden="true">🌙</span>
+  <span class="ml-2 text-sm">Theme</span>
+</button>
+
+<style is:global>
+  html[data-theme='dracula'] .theme-toggle .icon-sun { display: none; }
+  html[data-theme='dracula'] .theme-toggle .icon-moon { display: inline; }
+  html:not([data-theme='dracula']) .theme-toggle .icon-sun { display: inline; }
+  html:not([data-theme='dracula']) .theme-toggle .icon-moon { display: none; }
+</style>
+
+<script>
+  (function initThemeToggles() {
+    const htmlEl = document.documentElement;
+    const allowed = ['dracula', 'bumblebee'];
+
+    function getCurrentTheme() {
+      const t = htmlEl.getAttribute('data-theme');
+      if (allowed.includes(t || '')) return t;
+      try {
+        const stored = localStorage.getItem('theme');
+        if (allowed.includes(stored || '')) return stored;
+      } catch (e) {}
+      return 'bumblebee';
+    }
+
+    function applyTheme(theme) {
+      const next = allowed.includes(theme) ? theme : 'bumblebee';
+      htmlEl.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    }
+
+    function syncAllButtons() {
+      const theme = getCurrentTheme();
+      const isDark = theme === 'dracula';
+      document.querySelectorAll('button[data-theme-toggle]').forEach((btn) => {
+        if (!(btn instanceof HTMLElement)) return;
+        btn.setAttribute('aria-pressed', String(isDark));
+      });
+    }
+
+    // Global delegated click handler to survive swaps
+    if (!window.__themeToggleDelegated) {
+      window.__themeToggleDelegated = true;
+      document.addEventListener('click', (e) => {
+        const target = e.target;
+        if (!(target instanceof Element)) return;
+        const btn = target.closest('button[data-theme-toggle]');
+        if (!btn) return;
+        const requested = getCurrentTheme() === 'dracula' ? 'bumblebee' : 'dracula';
+        applyTheme(requested);
+        syncAllButtons();
+      }, true);
+    }
+
+    function syncAfterSwap() {
+      // Defer to next frame(s) to ensure new DOM is present before syncing
+      requestAnimationFrame(() => requestAnimationFrame(() => syncAllButtons()));
+    }
+
+    if (!window.__themeToggleSyncEvents) {
+      window.__themeToggleSyncEvents = true;
+      addEventListener('astro:page-load', syncAfterSwap);
+      addEventListener('astro:after-swap', syncAfterSwap);
+      addEventListener('pageshow', syncAfterSwap);
+    }
+    syncAfterSwap();
+
+    window.addEventListener('storage', (e) => {
+      if (e.key === 'theme') {
+        const t = getCurrentTheme();
+        htmlEl.setAttribute('data-theme', t);
+        syncAllButtons();
+      }
+    });
+  })();
+</script>
+
+

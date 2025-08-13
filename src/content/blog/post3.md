@@ -6,4 +6,4 @@ heroImage: "/post_img.webp"
 tags: ["rust","tokio"]
 ---
 
-Blog post coming soon. CHeck out my substack for more!
+Blog post coming soon. Check out my substack for more!

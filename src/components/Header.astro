@@ -1,5 +1,5 @@
 ---
-// Add any necessary imports or frontmatter here
+import ThemeToggle from "./ThemeToggle.astro";
 ---
 
 <div
@@ -15,9 +15,11 @@
       </label>
     </div>
     <div class="navbar-center">
-      <a class="btn btn-ghost normal-case text-xl" href="/">Morgan Huberty 📟</a>
+      <a class="btn btn-ghost normal-case text-xl" href={`${import.meta.env.BASE_URL}`}>Morgan Huberty 📟</a>
     </div>
-    <div class="navbar-end"></div>
+    <div class="navbar-end">
+      <ThemeToggle />
+    </div>
   </div>
 </div>
 
