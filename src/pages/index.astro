@@ -2,9 +2,11 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HorizontalCard from "../components/HorizontalCard.astro";
 import { getCollection } from "astro:content";
-import createSlug from "../lib/createSlug"
+import createSlug from "../lib/createSlug";
 
-const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
 
 const last_posts = posts.slice(0, 3);
 ---
@@ -14,20 +16,33 @@ const last_posts = posts.slice(0, 3);
     <div class="text-xl py-1">Hey there 👋</div>
     <div class="text-5xl font-bold">I'm Morgan Huberty</div>
     <div class="text-3xl py-3 font-bold">Computer Engineering Student</div>
-    
+
     <div class="py-6 space-y-4">
       <p class="text-lg">
-        Welcome to my personal website and digital portfolio! I'm currently a junior year student at Johns Hopkins University studying Computer Engineering.
+        Welcome to my personal website and digital portfolio! I'm currently a
+        junior year student at Johns Hopkins University studying Computer
+        Engineering.
       </p>
 
       <div class="flex justify-start mb-4">
-        <a 
-          href={`${import.meta.env.BASE_URL}November%20Resume.pdf`} 
+        <a
+          href={`${import.meta.env.BASE_URL}November%20Resume.pdf`}
           download
           class="inline-flex items-center px-6 py-3 text-lg font-bold bg-secondary text-primary-content rounded-lg hover:bg-primary-focus transition-colors duration-200 border-2 border-primary-content"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 mr-2"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+            ></path>
           </svg>
           Download Resume
         </a>
@@ -35,16 +50,12 @@ const last_posts = posts.slice(0, 3);
 
       <div class="space-y-2">
         <h3 class="text-xl font-semibold">Education 🎓</h3>
-        <p class="text-lg">
-          Johns Hopkins University
-        </p>
+        <p class="text-lg">Johns Hopkins University</p>
       </div>
 
       <div class="space-y-2">
         <h3 class="text-xl font-semibold">Academic Focus 📚</h3>
-        <p class="text-lg">
-          My major-relevant interests include:
-        </p>
+        <p class="text-lg">My major-relevant interests include:</p>
         <ul class="list-disc list-inside ml-4 text-lg">
           <li>Computer Architecture</li>
           <li>Hardware Acceleration</li>
@@ -54,27 +65,31 @@ const last_posts = posts.slice(0, 3);
       </div>
 
       <div class="space-y-2">
-        <h3 class="text-xl font-semibold">Personal Interests 🧐 </h3>
+        <h3 class="text-xl font-semibold">Personal Interests 🧐</h3>
         <p class="text-lg">
           Beyond my academic pursuits, I'm passionate about:
         </p>
         <ul class="list-disc list-inside ml-4 text-lg">
-          <li>Health & Wellness</li>
+          <li>Health & Longevity</li>
           <li>History</li>
-          <li>Ancestral Populations</li>
-          <li>Film</li>
+          <li>Resistance Training</li>
           <li>Philosophy</li>
-          <li>Automobiles</li>
+          <li>Classic Novels</li>
+          <li>Cooking</li>
+          <li>Pop Culture</li>
+          <li>Sailing</li>
+          <li>Nature Walks</li>
         </ul>
       </div>
 
       <p class="text-lg">
-        This website serves as both a portfolio and a space to explore my habits, interests, and self-development journey. Built with Astro and TailwindCSS, it's designed to be functional and reflective of my personal style.
+        This website serves as both a portfolio and a space to explore my
+        habits, interests, and self-development journey. Built with Astro and
+        TailwindCSS, it's designed to be functional and reflective of my
+        personal style.
       </p>
 
-      <p class="text-lg">
-        Thanks for stopping by! 🎉
-      </p>
+      <p class="text-lg">Thanks for stopping by! 🎉</p>
     </div>
   </div>
 
@@ -115,7 +130,10 @@ const last_posts = posts.slice(0, 3);
           title={post.data.title}
           img={post.data.heroImage}
           desc={post.data.description}
-          url={`${import.meta.env.BASE_URL}blog/` + createSlug(post.data.title, post.slug)}
+          url={
+            `${import.meta.env.BASE_URL}blog/` +
+            createSlug(post.data.title, post.slug)
+          }
           target="_self"
           badge={post.data.badge}
         />
