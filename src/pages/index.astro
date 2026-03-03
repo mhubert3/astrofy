@@ -58,8 +58,11 @@ const last_posts = posts.slice(0, 3);
         <p class="text-lg">My major-relevant interests include:</p>
         <ul class="list-disc list-inside ml-4 text-lg">
           <li>Computer Architecture</li>
-          <li>Hardware Acceleration</li>
-          <li>Artificial Intelligence</li>
+          <li>ASIC Engineering</li>
+          <li>FPGA Engineering</li>
+          <li>High-Level Synthesis</li>
+          <li>Agile Hardware Generation</li>
+          <li>Agentic AI for hardware</li>
           <li>Computational Genomics</li>
         </ul>
       </div>
@@ -94,30 +97,68 @@ const last_posts = posts.slice(0, 3);
   </div>
 
   <div>
-    <div class="text-3xl w-full font-bold mb-2">My recent projects {"</>"}</div>
+    <div class="text-xl font-semibold text-center mb-8">
+      Exploring the tight interplay between software and hardware.
+    </div>
   </div>
 
-  <HorizontalCard
-    title="Demo Project 1"
-    img="/hardware.webp"
-    desc="Coming soon!"
-    url="#"
-    badge="NEW"
-  />
-  <div class="divider my-0"></div>
-  <HorizontalCard
-    title="Demo Project 2"
-    img="/hardware.webp"
-    desc="Coming soon!"
-    url="#"
-  />
-  <div class="divider my-0"></div>
-  <HorizontalCard
-    title="Demo Project 3"
-    img="/software.webp"
-    desc="Coming soon!"
-    url="#"
-  />
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+    <!-- Left Column: Software Systems -->
+    <div>
+      <h2 class="text-2xl font-bold mb-4">Software Systems</h2>
+
+      <div class="mb-6">
+        <HorizontalCard
+          title="Key/Value Store (C++)"
+          img="/software.webp"
+          desc="Built a Redis-like in-memory K/V store with custom message serialization, multithreaded server (auto-commit & transactions with table-level locking), client utilities, and unit tests."
+          url="#"
+        />
+      </div>
+
+      <div class="mb-6">
+        <HorizontalCard
+          title="Cache Simulator (C, C++)"
+          img="/software.webp"
+          desc="Simulated a configurable set-associative cache (size, block, LRU/FIFO, write policies) that outputs hit/miss, cycle counts from benchmark traces."
+          url="#"
+        />
+      </div>
+    </div>
+
+    <!-- Right Column: Hardware Design -->
+    <div>
+      <h2 class="text-2xl font-bold mb-4">Hardware Design</h2>
+
+      <div class="mb-6">
+        <HorizontalCard
+          title="Serial UART Communication Interface (VHDL)"
+          img="/hardware.webp"
+          desc="Implemented RS-232 serial transceiver with configurable baud rate for asynchronous bidirectional communication. Interfaced with FTDI USB-UART bridge and verified timing/protocol compliance on hardware."
+          url="#"
+        />
+      </div>
+
+      <div class="mb-6">
+        <HorizontalCard
+          title="IPC Serial Communication Interface (VHDL)"
+          img="/hardware.webp"
+          desc="Implemented an I²C master with start/stop conditions, ACK/NACK handling, and open-drain SDA/SCL signaling. Tested data transfer with a PIC microcontroller and debugged timing behavior."
+          url="#"
+        />
+      </div>
+
+      <div class="mb-6">
+        <HorizontalCard
+          title="Streaming Genomic Data Reduction Pipeline (SystemVerilog)"
+          img="/hardware.webp"
+          desc="A hardware data-reduction pipeline inspired by real genomics workflows to clean and compress data suitable for downstream analysis."
+          url="#"
+          badge="Coming Soon"
+        />
+      </div>
+    </div>
+  </div>
 
   <div>
     <div class="text-3xl w-full font-bold mb-5 mt-10">Latest from blog 📝</div>
