@@ -17,30 +17,34 @@ const {
 } = Astro.props;
 ---
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <script>
       (function ensureTheme() {
         try {
-          const allowed = ['dracula', 'bumblebee'];
+          const allowed = ["dracula", "bumblebee"];
           const html = document.documentElement;
           function getStored() {
-            const t = localStorage.getItem('theme');
-            return allowed.includes(t || '') ? t : null;
+            const t = localStorage.getItem("theme");
+            return allowed.includes(t || "") ? t : null;
           }
           function chooseInitial() {
-            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-            return prefersDark ? 'dracula' : 'bumblebee';
+            const prefersDark =
+              window.matchMedia &&
+              window.matchMedia("(prefers-color-scheme: dark)").matches;
+            return prefersDark ? "dracula" : "bumblebee";
           }
           function apply(theme) {
-            const next = allowed.includes(theme) ? theme : 'bumblebee';
-            html.setAttribute('data-theme', next);
-            try { localStorage.setItem('theme', next); } catch (e) {}
+            const next = allowed.includes(theme) ? theme : "bumblebee";
+            html.setAttribute("data-theme", next);
+            try {
+              localStorage.setItem("theme", next);
+            } catch (e) {}
           }
           function applyFromStorage(force) {
-            const current = html.getAttribute('data-theme');
-            if (!force && allowed.includes(current || '')) {
+            const current = html.getAttribute("data-theme");
+            if (!force && allowed.includes(current || "")) {
               return; // Respect current valid theme (user choice persists across swaps)
             }
             const stored = getStored();
@@ -49,27 +53,40 @@ const {
           // Initial set and persist
           applyFromStorage(true);
           // Re-apply on navigation/page show events
-          addEventListener('pageshow', () => applyFromStorage(false));
-          addEventListener('astro:page-load', () => applyFromStorage(false));
-          addEventListener('astro:after-swap', () => applyFromStorage(false));
+          addEventListener("pageshow", () => applyFromStorage(false));
+          addEventListener("astro:page-load", () => applyFromStorage(false));
+          addEventListener("astro:after-swap", () => applyFromStorage(false));
           // Guard against external changes to data-theme
           const observer = new MutationObserver((mutations) => {
             for (const m of mutations) {
-              if (m.type === 'attributes' && m.attributeName === 'data-theme') {
-                const v = html.getAttribute('data-theme');
-                if (!allowed.includes(v || '')) {
+              if (m.type === "attributes" && m.attributeName === "data-theme") {
+                const v = html.getAttribute("data-theme");
+                if (!allowed.includes(v || "")) {
                   applyFromStorage(true);
                 }
               }
             }
           });
-          observer.observe(html, { attributes: true, attributeFilter: ['data-theme'] });
+          observer.observe(html, {
+            attributes: true,
+            attributeFilter: ["data-theme"],
+          });
           // Keep in sync if changed elsewhere
-          addEventListener('storage', (e) => { if (e.key === 'theme') applyFromStorage(true); });
-        } catch (e) { /* no-op */ }
+          addEventListener("storage", (e) => {
+            if (e.key === "theme") applyFromStorage(true);
+          });
+        } catch (e) {
+          /* no-op */
+        }
       })();
     </script>
-    <BaseHead title={title} description={description} image={image} , ogType={ogType} />
+    <BaseHead
+      title={title}
+      description={description}
+      image={image}
+      ,
+      ogType={ogType}
+    />
     {TRANSITION_API && <ViewTransitions />}
   </head>
   <body>
@@ -78,7 +95,7 @@ const {
       <div class="drawer-content bg-base-100">
         <Header title={SITE_TITLE} />
         <div class="md:flex md:justify-center">
-          <main class="p-6 pt-10 lg:max-w-[900px] max-w-[100vw]">
+          <main class="p-6 pt-10 lg:max-w-[1200px] max-w-[100vw]">
             <slot />
           </main>
         </div>
