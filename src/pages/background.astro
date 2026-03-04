@@ -16,6 +16,23 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
     Engineers.
   </div>
 
+  <div class="bg-base-200 p-6 rounded-lg my-8">
+    <blockquote class="italic text-lg mb-4">
+      "Morgan successfully navigated the challenge with distinction... his
+      continued learning outside the classroom speaks volumes about his grit,
+      determination, and passion for self-directed learning. I firmly believe
+      Morgan will prove an asset to any team."
+      <footer class="mt-2 text-sm not-italic font-semibold text-right">
+        — Brennon Brimhall, Instructor & Researcher, Johns Hopkins University
+      </footer>
+    </blockquote>
+    <div class="flex justify-center">
+      <a href="/letter.pdf" target="_blank" class="btn btn-primary"
+        >Read Full Recommendation Letter</a
+      >
+    </div>
+  </div>
+
   <div class="mb-5">
     <div class="text-3xl w-full font-bold">Education</div>
   </div>
@@ -25,8 +42,13 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
       title="B.S. Computer Engineering"
       subtitle="Expected May 2027 at Johns Hopkins University, Baltimore, USA"
     >
-      Relevant courses: Computer System Fundamentals, Intermediate Programming,
-      Mastering Electronics, Signals & Systems
+      <div class="flex flex-wrap gap-2 mt-2">
+        <span class="badge badge-outline">Data Structures</span>
+        <span class="badge badge-outline">Computer Fundamentals</span>
+        <span class="badge badge-outline">Signals & Systems</span>
+        <span class="badge badge-outline">FPGA Lab</span>
+        <span class="badge badge-outline">Mastering Electronics</span>
+      </div>
     </TimeLineElement>
     <TimeLineElement
       title="Engineering Math, Marketing Fundamentals for Media"
@@ -95,9 +117,6 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
     <span class="badge badge-outline">Git</span>
     <span class="badge badge-outline">Xilinx Vivado</span>
     <span class="badge badge-outline">LTSpice</span>
-    <span class="badge badge-outline">KiCad</span>
-    <span class="badge badge-outline">Tinkercad</span>
-    <span class="badge badge-outline">Fusion 360</span>
     <span class="badge badge-outline">Docker</span>
     <span class="badge badge-outline">Vercel</span>
     <span class="badge badge-outline">Excel (VLOOKUP, Charts, Graphs)</span>
