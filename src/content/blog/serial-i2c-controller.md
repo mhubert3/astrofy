@@ -2,7 +2,7 @@
 title: "I2C Master Controller in VHDL"
 description: "An RTL implementation of an I2C master controller supporting clock stretching and open-drain signaling on an Artix-7 FPGA."
 pubDate: "2026-03-03"
-heroImage: "/hardware.webp"
+heroImage: "/i2c-thumbnail.webp"
 badge: "Hardware Architecture"
 tags: ["VHDL", "FPGA", "I2C", "Digital Logic"]
 ---

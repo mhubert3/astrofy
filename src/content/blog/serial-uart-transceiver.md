@@ -2,7 +2,7 @@
 title: "Synthesizable RS-232 UART Transceiver in VHDL"
 description: "A custom hardware-level asynchronous serial communication module for the Digilent Cmod A7 FPGA."
 pubDate: "Mar 03 2026"
-heroImage: "/hardware.webp"
+heroImage: "/uart-thumbnail.webp"
 badge: "Hardware Architecture"
 tags: ["FPGA", "VHDL", "Digital Logic", "UART"]
 ---
